@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { addUser } from '../actions/actions';
+
+import store from '../store';
 
 class Form extends Component {
 
   _onClick = () => {
     let user = this.input.value;
-    this.props.addUser(user);
+    //this.props.addUser(user);
+
+    store.dispatch(addUser(user))
 
     this.input.value = '';
-  }
+  };
 
   render() {
     let {users} = this.props;
